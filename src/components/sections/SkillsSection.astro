@@ -1,15 +1,15 @@
 ---
-import reactIcon from "../../assets/react.svg";
-import nextjsIcon from "../../assets/next-js.svg";
-import nodejsIcon from "../../assets/node-js.svg";
-import tailwindIcon from "../../assets/tailwind.svg";
-import typescriptIcon from "../../assets/typescript.svg";
-import nestjsIcon from "../../assets/nest-js.svg";
-import communicationIcon from "../../assets/communication.svg";
-import problemSolvingIcon from "../../assets/problem-solving.svg";
-import creativityIcon from "../../assets/creativity.svg";
-import teamworkIcon from "../../assets/teamwork.svg";
-import adaptabilityIcon from "../../assets/adaptability.svg";
+import reactIcon from "../../assets/icons/react.svg";
+import nextjsIcon from "../../assets/icons/next-js.svg";
+import nodejsIcon from "../../assets/icons/node-js.svg";
+import tailwindIcon from "../../assets/icons/tailwind.svg";
+import typescriptIcon from "../../assets/icons/typescript.svg";
+import nestjsIcon from "../../assets/icons/nest-js.svg";
+import communicationIcon from "../../assets/icons/communication.svg";
+import problemSolvingIcon from "../../assets/icons/problem-solving.svg";
+import creativityIcon from "../../assets/icons/creativity.svg";
+import teamworkIcon from "../../assets/icons/teamwork.svg";
+import adaptabilityIcon from "../../assets/icons/adaptability.svg";
 
 const hardSkills = [
   { name: "React", icon: reactIcon },
@@ -30,6 +30,7 @@ const softSkills = [
 ---
 
 <section
+  id="skills"
   class="min-h-screen max-w-7xl mx-auto px-7 xl:px-0 py-20 flex flex-col gap-24"
 >
   <h2 class="text-4xl md:text-5xl font-bold text-white text-center">Skills</h2>
@@ -64,12 +65,18 @@ const softSkills = [
       Soft Skills
     </h3>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-6 gap-10 justify-items-center">
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-6 gap-10 justify-items-center"
+    >
       {
         softSkills.map((skill) => (
           <div class="flex flex-col items-center gap-3 group">
             <div class="w-16 h-16 rounded-full bg-gray-700 border border-slate-500 flex justify-center items-center transition-transform duration-300 group-hover:scale-110">
-              <img src={skill.icon.src} alt={skill.name} class="w-8 h-8 filter invert grayscale" />
+              <img
+                src={skill.icon.src}
+                alt={skill.name}
+                class="w-8 h-8 filter invert grayscale"
+              />
             </div>
             <span class="text-slate-300 text-sm">{skill.name}</span>
           </div>
