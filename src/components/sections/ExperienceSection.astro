@@ -1,0 +1,53 @@
+---
+import WorkItem from "./../WorkItem.astro"; // Asegúrate que la ruta sea correcta
+---
+
+<section
+  id="experience"
+  class="flex flex-col max-w-7xl mx-auto px-4 lg:px-8 xl:px-0 py-16 md:pt-20 md:pb-20"
+>
+  <h2
+    class="text-4xl md:text-5xl font-bold text-white mb-12 text-center poppins-semibold"
+  >
+    Experience
+  </h2>
+
+  <div class="flex flex-col gap-10 md:gap-12">
+    <WorkItem
+      title="FullStack Developer"
+      time="March 2024 – February 2025"
+      company="Traderland"
+      location="Chile | Remote"
+      tasks={[
+        "I led the frontend implementation of the redesign of 15+ interactive views (dashboard, screens battle and tournaments, user profiles and traders), working closely with the design team to propose improvements.",
+        "Implemented key features like the “Battle vs. A Friend” mode, using dynamic links to allow players to battle their friends.",
+        "Contributed to the migration from Polygon to Interactive Broker, restructuring backend and migrating frontend from HTTP to SignalR for more accurate market prices.",
+      ]}
+    />
+
+    <WorkItem
+      title="FullStack Developer"
+      time="February 2023 - November 2023 | December 2021 - August 2022"
+      company="La Liguilla"
+      location="Viena, Austria | Remote"
+      tasks={[
+        "Collaborated on platform design using Figma, working closely with lead designer.",
+        "Led redesign of Resources Manager module, a 10-page control panel managing competitions, leagues, teams, and players.",
+        "Designed and implemented game modalities, adding flexibility for Soccer 11, Soccer 5, and Soccer 7 formats.",
+      ]}
+    />
+
+    <WorkItem
+      title="FullStack Developer"
+      time="June 2022 - January 2025"
+      company="Freelancer"
+      location="Miami, USA | Remote"
+      tasks={[
+        "Developed projects from scratch with ReactJs and Next.js (Square Script, Reviewr, Amzhub), building modern, optimized UIs.",
+        "Integrated essential services like Firebase, OpenAI, Stripe, and Nest.js APIs.",
+        "Applied best practices in architecture (Clean Architecture) and technologies (React Query, Tailwind) for robust, maintainable code.",
+        "Collaborated with stakeholders and teams, ensuring successful deployments and code reviews.",
+      ]}
+    />
+  </div>
+</section>

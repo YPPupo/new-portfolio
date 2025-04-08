@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import Programmer from "./../../assets/programmer.svg";
+---
+
+<section
+  class="flex flex-col md:flex-row items-center justify-center md:justify-between md:min-h-screen max-w-7xl mx-auto pt-24 md:pt-0 px-4 lg:px-8 xl:px-0 gap-10 md:gap-16 py-16 md:py-20"
+>
+  <article
+    class="flex-1 flex flex-col justify-center items-center text-center md:items-start md:text-left space-y-6 order-2 md:order-1"
+  >
+    <div>
+      <h1
+        class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white poppins-semibold"
+      >
+        Hi, I'm <span class="text-emerald-400">Yasel Pérez</span>
+      </h1>
+      <span
+        class="block mt-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-white poppins-semibold"
+        >A Web/Mobile Developer</span
+      >
+    </div>
+
+    <p class="text-lg md:text-xl text-slate-400 max-w-xl montserrat-regular">
+      Passionate about building modern, performant, and user-friendly web
+      applications. Let's create something amazing together.
+    </p>
+
+    <div
+      class="flex flex-col sm:flex-row gap-4 sm:gap-5 pt-4 w-full sm:w-auto justify-center md:justify-start"
+    >
+      <a
+        href="#projects"
+        class="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 transition-all montserrat-semibold text-center sm:text-left w-full sm:w-auto"
+        >See Projects</a
+      >
+      <a
+        href="#contact"
+        class="border border-emerald-500 text-emerald-400 px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 hover:text-white transition-all montserrat-semibold text-center sm:text-left w-full sm:w-auto"
+        >Contact Me</a
+      >
+    </div>
+  </article>
+
+  <article
+    class="flex-1 flex justify-center md:justify-end order-1 md:order-2 w-full md:w-auto px-4 md:px-0"
+  >
+    <Image
+      src={Programmer}
+      alt="Ilustración de programador"
+      class="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] h-auto animate-fade-in"
+      loading="eager"
+      decoding="async"
+      widths={[300, 400, 600, 800]}
+      sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 450px"
+    />
+  </article>
+</section>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+</style>

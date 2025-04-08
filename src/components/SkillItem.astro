@@ -1,0 +1,16 @@
+---
+const { name, image } = Astro.props;
+---
+
+<div
+  class="flex flex-col items-center gap-2 p-4 bg-gray-800 border border-gray-700 rounded-xl hover:scale-105 transition-transform duration-300 w-28 h-28 md:w-32 md:h-32 shadow-sm"
+>
+  {
+    image ? (
+      <img src={image} alt={name} class="w-8 h-8 md:w-10 md:h-10" />
+    ) : (
+      <div class="text-white text-sm">No Image</div>
+    )
+  }
+  <span class="text-white text-sm text-center poppins-regular">{name}</span>
+</div>

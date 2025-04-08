@@ -1,0 +1,86 @@
+---
+import reactIcon from "../../assets/react.svg";
+import nextjsIcon from "../../assets/next-js.svg";
+import nodejsIcon from "../../assets/node-js.svg";
+import tailwindIcon from "../../assets/tailwind.svg";
+import typescriptIcon from "../../assets/typescript.svg";
+import nestjsIcon from "../../assets/nest-js.svg";
+import communicationIcon from "../../assets/communication.svg";
+import problemSolvingIcon from "../../assets/problem-solving.svg";
+import creativityIcon from "../../assets/creativity.svg";
+import teamworkIcon from "../../assets/teamwork.svg";
+import adaptabilityIcon from "../../assets/adaptability.svg";
+
+const hardSkills = [
+  { name: "React", icon: reactIcon },
+  { name: "Next.js", icon: nextjsIcon },
+  { name: "Node.js", icon: nodejsIcon },
+  { name: "NestJS", icon: nestjsIcon },
+  { name: "Tailwind", icon: tailwindIcon },
+  { name: "TypeScript", icon: typescriptIcon },
+];
+
+const softSkills = [
+  { name: "Communication", icon: communicationIcon },
+  { name: "Problem Solving", icon: problemSolvingIcon },
+  { name: "Creativity", icon: creativityIcon },
+  { name: "Teamwork", icon: teamworkIcon },
+  { name: "Adaptability", icon: adaptabilityIcon },
+];
+---
+
+<section
+  class="min-h-screen max-w-7xl mx-auto px-7 xl:px-0 py-20 flex flex-col gap-24"
+>
+  <h2 class="text-4xl md:text-5xl font-bold text-white text-center">Skills</h2>
+
+  <article class="flex flex-col gap-10">
+    <h3
+      class="text-2xl text-white font-semibold tracking-wide border-b border-emerald-500 w-fit pb-2 mx-auto"
+    >
+      Hard Skills
+    </h3>
+
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-6 gap-10 justify-items-center"
+    >
+      {
+        hardSkills.map((skill) => (
+          <div class="flex flex-col items-center gap-3 group">
+            <div class="w-16 h-16 rounded-full bg-gray-800 border border-emerald-500 flex justify-center items-center transition-transform duration-300 group-hover:scale-110">
+              <img src={skill.icon.src} alt={skill.name} class="w-8 h-8" />
+            </div>
+            <span class="text-slate-200 text-sm">{skill.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </article>
+
+  <article class="flex flex-col gap-10">
+    <h3
+      class="text-2xl text-white font-semibold tracking-wide border-b border-emerald-500 w-fit pb-2 mx-auto"
+    >
+      Soft Skills
+    </h3>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-6 gap-10 justify-items-center">
+      {
+        softSkills.map((skill) => (
+          <div class="flex flex-col items-center gap-3 group">
+            <div class="w-16 h-16 rounded-full bg-gray-700 border border-slate-500 flex justify-center items-center transition-transform duration-300 group-hover:scale-110">
+              <img src={skill.icon.src} alt={skill.name} class="w-8 h-8 filter invert grayscale" />
+            </div>
+            <span class="text-slate-300 text-sm">{skill.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </article>
+</section>
+
+<style>
+  .invert {
+    filter: invert(100%) grayscale(100%);
+  }
+</style>
