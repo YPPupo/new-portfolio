@@ -50,5 +50,36 @@
     >
       Send Message
     </button>
+
+    <div class="hidden" id="success-message">
+      <p class="text-green-500 text-center font-medium">
+        Your message has been sent successfully!
+      </p>
+    </div>
   </form>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const successMessage = document.getElementById("success-message");
+
+    if (form === null || successMessage === null) return; // Check if elements exist
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Simulate a successful submission
+      setTimeout(() => {
+        form.reset(); // Reset the form fields
+        successMessage.classList.remove("hidden"); // Show the success message
+      }, 1000); // Simulate a delay for the success message
+
+      // Simulate a successful submission
+      setTimeout(() => {
+        form.reset(); // Reset the form fields
+        successMessage.classList.add("hidden"); // Show the success message
+      }, 5000); // Simulate a delay for the success message
+    });
+  });
+</script>

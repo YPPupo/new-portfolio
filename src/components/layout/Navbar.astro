@@ -1,7 +1,7 @@
 ---
 // Iconos
-import HamMenu from "./../icons/HamMenu.astro";
-import CloseIcon from "./../icons/CloseIcon.astro";
+import hamMenu from "../../assets/icons/ham-menu.svg";
+import closeIcon from "../../assets/icons/close.svg";
 
 const items = [
   { name: "Home", href: "#home" },
@@ -15,7 +15,7 @@ const items = [
 
 <nav
   id="navbar"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300"
   role="navigation"
   aria-label="Main Navigation"
 >
@@ -50,7 +50,7 @@ const items = [
 
     <!-- Mobile Menu Button -->
     <button aria-label="Open menu" id="openMenuButton" class="md:hidden p-2">
-      <HamMenu class="w-8 h-8" />
+      <img src={hamMenu.src} alt="Menú" class="w-8 h-8 filter invert grayscale" />
     </button>
   </div>
 
@@ -63,7 +63,7 @@ const items = [
   >
     <div class="flex justify-end p-5">
       <button aria-label="Close menu" id="closeMenuButton" class="p-2">
-        <CloseIcon class="w-8 h-8" />
+        <img src={closeIcon.src} alt="Cerrar" class="w-8 h-8 filter invert grayscale" />
       </button>
     </div>
     <ul class="flex flex-col items-center gap-8 text-xl">
@@ -72,7 +72,7 @@ const items = [
           <li class="cursor-pointer hover:text-emerald-500 transition-colors">
             <a
               href={item.href}
-              class="focus:outline-none focus:text-emerald-400 menu-link"
+              class="focus:outline-none focus:text-emerald-400 menu-link text-emerald-400 poppins-regular"
             >
               {item.name}
             </a>

@@ -1,89 +1,82 @@
 @import "tailwindcss";
 
-body {
-  overflow-x: hidden;
+.poppins-light,
+.poppins-regular,
+.poppins-medium,
+.poppins-semibold,
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  line-height: 1.5;
 }
 
 .poppins-light {
-  font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .poppins-regular {
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .poppins-medium {
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .poppins-semibold {
-  font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .poppins-bold {
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
-  font-style: normal;
-  line-height: 1.5;
 }
 
-.poppins-extrabold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-  line-height: 1.5;
-}
-
-.poppins-black {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
+.montserrat-light,
+.montserrat-regular,
+.montserrat-medium,
+.montserrat-semibold,
+.montserrat-bold {
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   line-height: 1.5;
 }
 
 .montserrat-light {
-  font-family: "Montserrat", sans-serif;
   font-weight: 300;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .montserrat-regular {
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .montserrat-medium {
-  font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .montserrat-semibold {
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-style: normal;
-  line-height: 1.5;
 }
 
 .montserrat-bold {
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-style: normal;
-  line-height: 1.5;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  background: #0f2027;
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  );
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  );
 }

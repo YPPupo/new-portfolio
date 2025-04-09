@@ -12,10 +12,10 @@ import ContactSection from "../components/sections/ContactSection.astro";
 ---
 
 <Layout>
-  <header>
+  <header class="w-full">
     <Navbar />
   </header>
-  <main class="flex flex-col max-w-7xl mx-auto px-7 xl:px-0">
+  <main class="flex flex-col max-w-7xl mx-auto">
     <section id="main-content">
       <HeroSection />
       <AboutSection />
@@ -25,7 +25,7 @@ import ContactSection from "../components/sections/ContactSection.astro";
       <ContactSection />
     </section>
   </main>
-  <footer>
+  <footer class="w-full">
     <Footer />
   </footer>
 </Layout>
