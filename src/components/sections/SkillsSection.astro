@@ -14,80 +14,169 @@ import teamworkIcon from "../../assets/icons/teamwork.svg";
 import adaptabilityIcon from "../../assets/icons/adaptability.svg";
 
 const hardSkills = [
-  { name: "React", icon: reactIcon },
-  { name: "Angular", icon: angularIcon },
-  { name: "Next.js", icon: nextjsIcon },
-  { name: "Astro", icon: astroIcon },
-  { name: "Node.js", icon: nodejsIcon },
-  { name: "NestJS", icon: nestjsIcon },
-  { name: "Tailwind", icon: tailwindIcon },
-  { name: "TypeScript", icon: typescriptIcon },
+  { name: "React", icon: reactIcon, level: 90 },
+  { name: "Angular", icon: angularIcon, level: 85 },
+  { name: "Next.js", icon: nextjsIcon, level: 88 },
+  { name: "Astro", icon: astroIcon, level: 80 },
+  { name: "Node.js", icon: nodejsIcon, level: 85 },
+  { name: "NestJS", icon: nestjsIcon, level: 82 },
+  { name: "Tailwind", icon: tailwindIcon, level: 95 },
+  { name: "TypeScript", icon: typescriptIcon, level: 87 },
 ];
 
 const softSkills = [
-  { name: "Communication", icon: communicationIcon },
-  { name: "Problem Solving", icon: problemSolvingIcon },
-  { name: "Creativity", icon: creativityIcon },
-  { name: "Teamwork", icon: teamworkIcon },
-  { name: "Adaptability", icon: adaptabilityIcon },
+  { name: "Comunicación", icon: communicationIcon, level: 92 },
+  { name: "Resolución de Problemas", icon: problemSolvingIcon, level: 95 },
+  { name: "Creatividad", icon: creativityIcon, level: 88 },
+  { name: "Trabajo en Equipo", icon: teamworkIcon, level: 90 },
+  { name: "Adaptabilidad", icon: adaptabilityIcon, level: 93 },
 ];
 ---
 
-<section
-  id="skills"
-  class="min-h-screen max-w-7xl mx-auto px-7 xl:px-0 py-20 flex flex-col gap-24"
->
-  <h2 class="text-4xl md:text-5xl font-bold text-white text-center">Skills</h2>
-
-  <article class="flex flex-col gap-10">
-    <h3
-      class="text-2xl text-white font-semibold tracking-wide border-b border-emerald-500 w-fit pb-2 mx-auto"
-    >
-      Hard Skills
-    </h3>
-
-    <div
-      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-6 gap-10 justify-items-center"
-    >
-      {
-        hardSkills.map((skill) => (
-          <div class="flex flex-col items-center gap-3 group">
-            <div class="w-16 h-16 rounded-full bg-gray-800 border border-emerald-500 flex justify-center items-center transition-transform duration-300 group-hover:scale-110">
-              <img src={skill.icon.src} alt={skill.name} class="w-8 h-8" />
-            </div>
-            <span class="text-slate-200 text-sm">{skill.name}</span>
-          </div>
-        ))
-      }
+<section id="skills" class="section-padding" aria-labelledby="skills-heading">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2
+        id="skills-heading"
+        class="heading-lg text-white poppins-semibold mb-4"
+      >
+        Skills
+      </h2>
+      <div
+        class="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full"
+      >
+      </div>
+      <p
+        class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto montserrat-regular"
+      >
+        Tecnologies and competences that I master to create exceptional
+        solutions
+      </p>
     </div>
-  </article>
 
-  <article class="flex flex-col gap-10">
-    <h3
-      class="text-2xl text-white font-semibold tracking-wide border-b border-emerald-500 w-fit pb-2 mx-auto"
-    >
-      Soft Skills
-    </h3>
+    <div class="space-y-20">
+      <!-- Hard Skills -->
+      <article class="animate-on-scroll">
+        <header class="text-center mb-12">
+          <h3
+            class="heading-md text-white poppins-semibold mb-4"
+          >
+            Habilidades Técnicas
+          </h3>
+          <div class="w-16 h-0.5 bg-emerald-400 mx-auto rounded-full"></div>
+        </header>
 
-    <div
-      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-6 gap-10 justify-items-center"
-    >
-      {
-        softSkills.map((skill) => (
-          <div class="flex flex-col items-center gap-3 group">
-            <div class="w-16 h-16 rounded-full bg-gray-700 border border-slate-500 flex justify-center items-center transition-transform duration-300 group-hover:scale-110">
-              <img
-                src={skill.icon.src}
-                alt={skill.name}
-                class="w-8 h-8 filter invert grayscale"
-              />
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-animation"
+        >
+          {
+            hardSkills.map((skill, index) => (
+              <div class="group floating-card">
+                <div class="glass-effect rounded-xl p-6 text-center card-hover border border-slate-700/50 hover:border-emerald-500/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50 glow-on-hover">
+                  <!-- Icon Container -->
+                  <div class="relative mb-4 mx-auto w-20 h-20">
+                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-blue-500/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                    <div class="relative w-20 h-20 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-emerald-500/30 flex justify-center items-center group-hover:border-emerald-400 transition-all duration-300 group-hover:scale-110">
+                      <img 
+                        src={skill.icon.src} 
+                        alt={`Icono de ${skill.name}`} 
+                        class="w-10 h-10 group-hover:scale-110 transition-transform duration-300" 
+                      />
+                    </div>
+                  </div>
+                  
+                  <!-- Skill Name -->
+                  <h4 class="text-white text-lg font-semibold mb-3 poppins-medium">
+                    {skill.name}
+                  </h4>
+                  
+                  <!-- Progress Bar -->
+                  <div class="relative">
+                    <div class="w-full bg-slate-700 rounded-full h-2 mb-2">
+                      <div 
+                        class="progress-bar bg-gradient-to-r from-emerald-400 to-emerald-500 h-2 rounded-full relative overflow-hidden"
+                        data-percentage={skill.level}
+                        style="width: 0%;"
+                      >
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+                      </div>
+                    </div>
+                    <span class="text-emerald-400 text-sm font-medium">{skill.level}%</span>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </article>
+
+    <!-- Soft Skills -->
+    <article class="animate-on-scroll">
+      <header class="text-center mb-12">
+        <h3
+          class="heading-md text-white poppins-semibold mb-4"
+        >
+          Habilidades Interpersonales
+        </h3>
+        <div class="w-16 h-0.5 bg-blue-400 mx-auto rounded-full"></div>
+      </header>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 stagger-animation"
+      >
+        {
+          softSkills.map((skill, index) => (
+            <div class="group floating-card" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="glass-effect rounded-xl p-6 text-center card-hover border border-slate-700/50 hover:border-blue-500/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50">
+                <!-- Icon Container -->
+                <div class="relative mb-4 mx-auto w-16 h-16">
+                  <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                  <div class="relative w-16 h-16 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-blue-500/30 flex justify-center items-center group-hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
+                    <img 
+                      src={skill.icon.src} 
+                      alt={`Icono de ${skill.name}`} 
+                      class="w-8 h-8 filter brightness-0 invert group-hover:scale-110 transition-transform duration-300" 
+                    />
+                  </div>
+                </div>
+                
+                <!-- Skill Name -->
+                <h4 class="text-white text-base font-semibold mb-3 poppins-medium">
+                  {skill.name}
+                </h4>
+                
+                <!-- Progress Circle -->
+                <div class="relative w-12 h-12 mx-auto">
+                  <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+                    <path
+                      class="text-slate-700"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path
+                      class="text-blue-400"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-dasharray={`${skill.level}, 100`}
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                  </svg>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-xs text-blue-400 font-semibold">{skill.level}%</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <span class="text-slate-300 text-sm">{skill.name}</span>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
+    </article>
     </div>
-  </article>
+  </div>
 </section>
 
 <style>
@@ -95,3 +184,28 @@ const softSkills = [
     filter: invert(100%) grayscale(100%);
   }
 </style>
+
+<script>
+  // Initialize skill animations when section comes into view
+  const skillsSection = document.getElementById('skills');
+  if (skillsSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate progress bars
+          const progressBars = entry.target.querySelectorAll('.progress-bar');
+          progressBars.forEach((bar, index) => {
+            setTimeout(() => {
+              const percentage = bar.dataset.percentage;
+              bar.style.width = percentage + '%';
+            }, index * 100);
+          });
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    observer.observe(skillsSection);
+  }
+</script>

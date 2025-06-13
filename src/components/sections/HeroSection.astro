@@ -5,40 +5,49 @@ import Programmer from "./../../assets/programmer.svg";
 
 <section
   id="home"
-  class="flex flex-col md:flex-row items-center justify-center md:justify-between md:min-h-screen max-w-7xl mx-auto pt-24 md:pt-0 px-4 lg:px-8 xl:px-0 gap-10 md:gap-16 py-16 md:py-20"
+  class="flex flex-col md:flex-row items-center justify-center md:justify-between md:min-h-screen w-full mx-auto pt-24 md:pt-0 px-4 lg:px-8 xl:px-0 gap-10 md:gap-16 py-16 md:py-20"
+  aria-labelledby="hero-heading"
 >
   <article
     class="flex-1 flex flex-col justify-center items-center text-center md:items-start md:text-left space-y-6 order-2 md:order-1"
   >
     <div>
       <h1
+        id="hero-heading"
         class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white poppins-semibold"
       >
-        Hi, I'm <span class="text-emerald-400">Yasel Pérez</span>
+        Hi, I'm <span class="text-emerald-400 animate-gradient"
+          >Yasel Pérez</span
+        >
       </h1>
-      <span
+      <p
         class="block mt-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-white poppins-semibold"
-        >A Web/Mobile Developer</span
       >
+        A Web/Mobile Developer
+      </p>
     </div>
 
-    <p class="text-lg md:text-xl text-slate-400 max-w-xl montserrat-regular">
+    <p
+      class="text-lg md:text-xl text-slate-300 max-w-xl montserrat-regular leading-relaxed"
+    >
       Passionate about building modern, performant, and user-friendly web
       applications. Let's create something amazing together.
     </p>
 
     <div
       class="flex flex-col sm:flex-row gap-4 sm:gap-5 pt-4 w-full sm:w-auto justify-center md:justify-start"
+      role="group"
+      aria-label="Hero actions"
     >
       <a
         href="#projects"
-        class="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 transition-all montserrat-semibold text-center sm:text-left w-full sm:w-auto"
-        >See Projects</a
+        class="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 hover:scale-105 hover:shadow-lg transition-all duration-200 montserrat-semibold text-center sm:text-left w-full sm:w-auto"
+        aria-label="See projects">See Projects</a
       >
       <a
         href="#contact"
-        class="border border-emerald-500 text-emerald-400 px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 hover:text-white transition-all montserrat-semibold text-center sm:text-left w-full sm:w-auto"
-        >Contact Me</a
+        class="border border-emerald-500 text-emerald-400 px-6 py-3 rounded-lg font-medium hover:bg-emerald-900 hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-200 montserrat-semibold text-center sm:text-left w-full sm:w-auto"
+        aria-label="Contact me">Contact Me</a
       >
     </div>
   </article>
@@ -46,31 +55,69 @@ import Programmer from "./../../assets/programmer.svg";
   <article
     class="flex-1 flex justify-center md:justify-end order-1 md:order-2 w-full md:w-auto px-4 md:px-0"
   >
-    <Image
-      src={Programmer}
-      alt="Ilustración de programador"
-      class="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] h-auto animate-fade-in"
-      loading="eager"
-      decoding="async"
-      widths={[300, 400, 600, 800]}
-      sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 450px"
-    />
+    <div class="relative">
+      <Image
+        src={Programmer}
+        alt="Programming illustration"
+        class="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] h-auto animate-float"
+        loading="eager"
+        decoding="async"
+        widths={[300, 400, 600, 800]}
+        sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 450px"
+      />
+      <div
+        class="absolute -inset-4 bg-gradient-to-r from-emerald-400/20 to-blue-500/20 rounded-full blur-xl animate-pulse-slow"
+      >
+      </div>
+    </div>
   </article>
 </section>
 
 <style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    50% {
+      transform: translateY(-10px);
     }
   }
 
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
+  @keyframes gradient {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background: linear-gradient(-45deg, #10b981, #3b82f6, #8b5cf6, #10b981);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
   }
 </style>

@@ -12,18 +12,20 @@ import ContactSection from "../components/sections/ContactSection.astro";
 ---
 
 <Layout>
-  <header class="w-full">
+  <header class="w-full sticky top-0 left-0 right-0 z-50 bg-background">
     <Navbar />
   </header>
-  <main class="flex flex-col max-w-7xl mx-auto">
-    <section id="main-content">
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <ContactSection />
-    </section>
+  <main
+    id="main-content"
+    class="flex flex-col max-w-7xl mx-auto w-full"
+    role="main"
+  >
+    <HeroSection />
+    <AboutSection />
+    <ExperienceSection />
+    <ProjectsSection />
+    <SkillsSection />
+    <ContactSection />
   </main>
   <footer class="w-full">
     <Footer />

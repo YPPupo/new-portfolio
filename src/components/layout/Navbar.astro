@@ -15,7 +15,7 @@ const items = [
 
 <nav
   id="navbar"
-  class="w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="w-full bg-background transition-all duration-300"
   role="navigation"
   aria-label="Main Navigation"
 >
@@ -30,16 +30,28 @@ const items = [
   <div
     class="relative flex justify-between items-center max-w-7xl mx-auto py-5 px-7 xl:px-0 text-white"
   >
-    <h1 class="font-bold text-3xl poppins-bold">Portfolio</h1>
+    <h1 class="font-bold text-3xl poppins-bold">
+      <a
+        href="#home"
+        class="rounded-md"
+      >
+        Portfolio
+      </a>
+    </h1>
 
     <!-- Web Menu -->
-    <ul class="hidden md:flex gap-7">
+    <ul class="hidden md:flex gap-7" role="menubar">
       {
         items.map((item) => (
-          <li class="cursor-pointer hover:text-emerald-500 transition-colors poppins-regular">
+          <li
+            role="none"
+            class="cursor-pointer hover:text-emerald-400 transition-colors duration-200 poppins-regular"
+          >
             <a
+              role="menuitem"
               href={item.href}
-              class="focus:outline-none focus:text-emerald-400"
+              class="rounded-md px-2 py-1 hover:scale-105 transition-transform duration-200"
+              aria-label={`Go to section ${item.name}`}
             >
               {item.name}
             </a>
@@ -49,8 +61,19 @@ const items = [
     </ul>
 
     <!-- Mobile Menu Button -->
-    <button aria-label="Open menu" id="openMenuButton" class="md:hidden p-2">
-      <img src={hamMenu.src} alt="Menú" class="w-8 h-8 filter invert grayscale" />
+    <button
+      aria-label="Open menu"
+      id="openMenuButton"
+      class="md:hidden p-2 rounded-md hover:scale-110 transition-transform duration-200"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
+      <img
+        src={hamMenu.src}
+        alt="Menu"
+        class="w-8 h-8 filter invert grayscale"
+        role="presentation"
+      />
     </button>
   </div>
 
@@ -60,19 +83,36 @@ const items = [
     class="md:hidden fixed top-0 left-full w-full h-screen bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ease-in-out z-50"
     role="dialog"
     aria-modal="true"
+    aria-labelledby="mobile-menu-title"
+    aria-hidden="true"
   >
     <div class="flex justify-end p-5">
-      <button aria-label="Close menu" id="closeMenuButton" class="p-2">
-        <img src={closeIcon.src} alt="Cerrar" class="w-8 h-8 filter invert grayscale" />
+      <button
+        aria-label="Close menu"
+        id="closeMenuButton"
+        class="p-2 rounded-md hover:scale-110 transition-transform duration-200"
+      >
+        <img
+          aria-label="Close menu"
+          src={closeIcon.src}
+          alt="Close"
+          class="w-8 h-8 filter invert grayscale"
+          role="presentation"
+        />
       </button>
     </div>
-    <ul class="flex flex-col items-center gap-8 text-xl">
+    <ul class="flex flex-col items-center gap-8 text-xl mt-8" role="menu">
       {
         items.map((item) => (
-          <li class="cursor-pointer hover:text-emerald-500 transition-colors">
+          <li
+            role="none"
+            class="cursor-pointer hover:text-emerald-400 transition-colors duration-200"
+          >
             <a
+              role="menuitem"
               href={item.href}
-              class="focus:outline-none focus:text-emerald-400 menu-link text-emerald-400 poppins-regular"
+              class="focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md px-4 py-2 menu-link text-white poppins-regular hover:scale-105 transition-transform duration-200"
+              aria-label={`Go to section ${item.name}`}
             >
               {item.name}
             </a>
@@ -94,11 +134,15 @@ const items = [
     const openMenu = () => {
       menu.classList.remove("left-full");
       menu.classList.add("left-0");
+      menu.setAttribute("aria-hidden", "false");
+      openButton.setAttribute("aria-expanded", "true");
     };
 
     const closeMenu = () => {
       menu.classList.remove("left-0");
       menu.classList.add("left-full");
+      menu.setAttribute("aria-hidden", "true");
+      openButton.setAttribute("aria-expanded", "false");
     };
 
     openButton.addEventListener("click", (e) => {
@@ -132,12 +176,26 @@ const items = [
     // Scroll behavior for background
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
-        navbarBg.classList.add("bg-gray-900", "shadow-lg");
+        navbarBg.classList.add("bg-gray-900/90", "shadow-lg");
         navbarBg.classList.remove("backdrop-blur-sm");
       } else {
-        navbarBg.classList.remove("bg-gray-900", "shadow-lg");
+        navbarBg.classList.remove("bg-gray-900/90", "shadow-lg");
         navbarBg.classList.add("backdrop-blur-sm");
       }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
   });
 </script>

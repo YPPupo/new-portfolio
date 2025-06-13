@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string;
+  time: string;
+  company: string;
+  location: string;
+  tasks: string[];
+  isLatest?: boolean;
+}
+const { title, time, company, location, tasks, isLatest = false } = Astro.props;
+---
+
+<article class="relative pl-12 md:pl-0 md:w-full">
+  <!-- Timeline Dot -->
+  <div
+    class={`absolute left-0 md:left-1/2 w-8 h-8 rounded-full border-4 transform md:-translate-x-1/2 -translate-y-1 ${isLatest ? "bg-emerald-400 border-emerald-300 shadow-lg shadow-emerald-400/50" : "bg-slate-700 border-slate-600"} transition-all duration-300`}
+  >
+    {
+      isLatest && (
+        <div class="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75" />
+      )
+    }
+  </div>
+
+  <!-- Content Card -->
+  <div
+    class={`md:w-5/12 ${isLatest ? "md:ml-auto md:pl-8" : "md:mr-auto md:pr-8"} transition-all duration-300`}
+  >
+    <div
+      class="glass-effect rounded-xl p-6 sm:p-8 card-hover border border-slate-700/50 hover:border-emerald-500/30 bg-gradient-to-br from-slate-800/50 via-slate-900/30 to-slate-800/50"
+    >
+      <!-- Header -->
+      <header class="mb-6">
+        <div class="flex flex-col gap-3">
+          <h3 class="heading-sm text-emerald-400 poppins-semibold">
+            {title}
+          </h3>
+
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <span class="text-slate-100 font-medium montserrat-semibold"
+              >{company}</span
+            >
+            <span class="hidden sm:inline text-slate-500">•</span>
+            <span class="text-slate-400 montserrat-regular">{location}</span>
+          </div>
+
+          <!-- Time Badges -->
+          <div class="flex flex-wrap gap-2">
+            {
+              time
+                .split(" | ")
+                .map((date: string) => (
+                  <span class="bg-emerald-500/20 text-emerald-300 text-sm px-3 py-1 rounded-full poppins-regular border border-emerald-500/30">
+                    {date.trim()}
+                  </span>
+                ))
+            }
+          </div>
+        </div>
+      </header>
+
+      <!-- Tasks -->
+      <div class="space-y-4">
+        <ul class="space-y-3 text-slate-300 leading-relaxed montserrat-regular">
+          {
+            tasks.map((task: string) => (
+              <li class="flex items-start gap-3">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0" />
+                <span class="text-base">{task}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>

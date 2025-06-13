@@ -6,12 +6,44 @@ import "../styles/global.css";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Porfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Yasel Pérez | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Yasel Pérez, web developer and mobile developer specializing in JavaScript, React, Angular and modern technologies. Creating innovative and efficient web applications."
+    />
+    <meta
+      name="keywords"
+      content="web developer, mobile developer, JavaScript, React, Angular, portfolio, programmer, frontend, backend"
+    />
+    <meta name="author" content="Yasel Pérez" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Yasel Pérez | Portfolio" />
+    <meta
+      property="og:description"
+      content="Portfolio of Yasel Pérez, web developer and mobile developer specializing in JavaScript, React, Angular and modern technologies. Creating innovative and efficient web applications."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yasel Pérez | Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Yasel Pérez, web developer and mobile developer specializing in JavaScript, React, Angular and modern technologies. Creating innovative and efficient web applications."
+    />
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Font loading with display=swap for better performance -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
@@ -20,9 +52,34 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#10b981" />
+
+    <!-- Accessibility: Reduced motion preference -->
+    <style>
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- Skip to main content link for screen readers -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-emerald-500 text-white px-4 py-2 rounded-md z-50"
+    >
+      Skip to main content
+    </a>
     <slot />
+
+    <!-- Load animations script -->
+    <script src="/src/scripts/animations.js" is:inline></script>
   </body>
 </html>
-

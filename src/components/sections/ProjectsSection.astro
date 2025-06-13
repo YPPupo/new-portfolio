@@ -1,8 +1,10 @@
 ---
-import ProjectItem from "./../ProjectItem.astro";
+import ProjectItem from "./../ui/ProjectItem.astro";
 import mangolandImage from "../../assets/projects/mangoland.png";
 import devfinderImage from "../../assets/projects/devfinder.png";
 import cryptoDashboardImage from "../../assets/projects/crypto-dashboard.png";
+import FeaturedProjectItem from "../ui/FeaturedProjectItem.astro";
+
 const projects = [
   {
     title: "Mangoland",
@@ -12,6 +14,7 @@ const projects = [
     link: "https://mangoland.vercel.app/",
     repoLink: "https://github.com/YPPupo/mangoland.git",
     tags: ["Astro", "JavaScript", "Vercel"],
+    featured: true,
   },
   {
     title: "FM Devfinder",
@@ -21,6 +24,7 @@ const projects = [
     link: "https://fm-devfinder.vercel.app/",
     repoLink: "https://github.com/YPPupo/fm-devfinder.git",
     tags: ["React", "Next js", "API", "Vercel"],
+    featured: false,
   },
   {
     title: "Crypto New Dashboard",
@@ -30,32 +34,67 @@ const projects = [
     link: "https://crypto-new-dashboard.vercel.app/",
     repoLink: "https://github.com/YPPupo/crypto-new-dashboard.git",
     tags: ["React", "Next js", "API", "Dashboard"],
+    featured: false,
   },
 ];
 ---
 
 <section
   id="projects"
-  class="max-w-7xl mx-auto px-6 lg:px-8 xl:px-0 py-16 md:pt-20 md:pb-20"
+  class="section-padding"
+  aria-labelledby="projects-heading"
 >
-  <h2
-    class="text-4xl md:text-5xl font-bold text-white mb-12 md:mb-16 text-center poppins-semibold"
-  >
-    Projects
-  </h2>
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2
+        id="projects-heading"
+        class="heading-lg text-white poppins-semibold mb-4"
+      >
+        Projects
+      </h2>
 
-  <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-8">
-    {
-      projects.map((project) => (
-        <ProjectItem
-          title={project.title}
-          description={project.description}
-          image={project.image.src}
-          link={project.link}
-          repoLink={project.repoLink}
-          tags={project.tags}
-        />
-      ))
-    }
+      <div
+        class="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full"
+      >
+      </div>
+      <p
+        class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto montserrat-regular"
+      >
+        A selection of my most notable projects that showcase my skills and
+        experience
+      </p>
+    </div>
+
+    <div class="space-y-12">
+      {
+        projects
+          .filter((p) => p.featured)
+          .map((project) => (
+            <FeaturedProjectItem
+              title={project.title}
+              description={project.description}
+              image={project.image.src}
+              link={project.link}
+              repoLink={project.repoLink}
+              tags={project.tags}
+            />
+          ))
+      }
+
+      <div class="grid md:grid-cols-2 gap-8 stagger-animation">
+        {
+          projects.filter((p) => !p.featured).map((project) => (
+            <ProjectItem
+              title={project.title}
+              description={project.description}
+              image={project.image.src}
+              link={project.link}
+              repoLink={project.repoLink}
+              tags={project.tags}
+            />
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>
