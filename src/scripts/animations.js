@@ -22,19 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const navbarBg = document.getElementById('navbar-bg');
   
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY > 50;
-    
-    if (scrolled) {
-      navbarBg.classList.add('bg-slate-900/95', 'shadow-lg', 'backdrop-blur-md');
-      navbarBg.classList.remove('backdrop-blur-sm');
-      navbar.classList.add('navbar-scrolled');
-    } else {
-      navbarBg.classList.remove('bg-slate-900/95', 'shadow-lg', 'backdrop-blur-md');
-      navbarBg.classList.add('backdrop-blur-sm');
-      navbar.classList.remove('navbar-scrolled');
-    }
-  });
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -55,13 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSection = document.getElementById('home');
   const heroImage = heroSection?.querySelector('img');
   
-  if (heroImage) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
+  // Performance optimized scroll handler
+  const handleScroll = () => {
+    const scrolled = window.scrollY;
+
+    // Navbar scroll effect
+    if (scrolled > 50) {
+      navbarBg.classList.add('bg-slate-900/95', 'shadow-lg', 'backdrop-blur-md');
+      navbarBg.classList.remove('backdrop-blur-sm');
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbarBg.classList.remove('bg-slate-900/95', 'shadow-lg', 'backdrop-blur-md');
+      navbarBg.classList.add('backdrop-blur-sm');
+      navbar.classList.remove('navbar-scrolled');
+    }
+
+    // Parallax effect for hero section
+    if (heroImage) {
       const rate = scrolled * -0.5;
       heroImage.style.transform = `translateY(${rate}px)`;
-    });
-  }
+    }
+  };
+
+  const optimizedScrollHandler = debounce(handleScroll, 16); // ~60fps
+  window.addEventListener('scroll', optimizedScrollHandler);
 
   // Typing animation for hero text
   const heroHeading = document.querySelector('#hero-heading');
@@ -90,28 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.floating-card');
   cards.forEach((card, index) => {
     card.style.animationDelay = `${index * 0.2}s`;
-  });
-
-  // Mouse follow effect for cursor
-  const cursor = document.createElement('div');
-  cursor.className = 'custom-cursor';
-  document.body.appendChild(cursor);
-
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-
-  // Hover effects for interactive elements
-  const interactiveElements = document.querySelectorAll('a, button, .card-hover');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor-hover');
-    });
-    
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor-hover');
-    });
   });
 
   // Stagger animation for lists
@@ -173,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function createParticles() {
   const particleContainer = document.createElement('div');
   particleContainer.className = 'particle-container';
-  document.body.appendChild(particleContainer);
+  document.body.prepend(particleContainer);
 
   for (let i = 0; i < 50; i++) {
     const particle = document.createElement('div');
@@ -197,11 +179,3 @@ function debounce(func, wait) {
     timeout = setTimeout(later, wait);
   };
 }
-
-// Performance optimized scroll handler
-const optimizedScrollHandler = debounce(() => {
-  // Handle scroll-based animations here
-}, 16); // ~60fps
-
-window.addEventListener('scroll', optimizedScrollHandler);
-
