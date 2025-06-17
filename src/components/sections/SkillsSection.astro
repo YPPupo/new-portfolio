@@ -145,7 +145,7 @@ const softSkills = [
                   {skill.name}
                 </h4>
                 
-                <!-- Progress Circle -->
+                <!-- Progress Circle - Kept inline because of dynamic attributes -->
                 <div class="relative w-12 h-12 mx-auto">
                   <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
                     <path
@@ -196,8 +196,10 @@ const softSkills = [
           const progressBars = entry.target.querySelectorAll('.progress-bar');
           progressBars.forEach((bar, index) => {
             setTimeout(() => {
-              const percentage = bar.dataset.percentage;
-              bar.style.width = percentage + '%';
+              // Type assertion to HTMLElement to address TypeScript lint errors
+              const barElement = bar as HTMLElement;
+              const percentage = barElement.getAttribute('data-percentage');
+              barElement.style.width = percentage + '%';
             }, index * 100);
           });
           

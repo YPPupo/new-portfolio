@@ -1041,14 +1041,24 @@ textarea:invalid {
   box-shadow: none;
 }
 
+input:invalid:not(:focus)[data-touched="true"],
+textarea:invalid:not(:focus)[data-touched="true"] {
+  border-color: #ef4444;
+}
+
+input:valid:not(:focus)[data-touched="true"]:not(:placeholder-shown),
+textarea:valid:not(:focus)[data-touched="true"]:not(:placeholder-shown) {
+  border-color: #10b981;
+}
+
 input:invalid:not(:focus),
 textarea:invalid:not(:focus) {
-  border-color: #ef4444;
+  border-color: inherit;
 }
 
 input:valid:not(:focus),
 textarea:valid:not(:focus) {
-  border-color: #10b981;
+  border-color: inherit;
 }
 
 /* Better Button States */

@@ -1,4 +1,19 @@
-<footer class="relative w-full text-white mt-20" role="contentinfo">
+---
+import GithubIcon from "./../../assets/icons/github.svg";
+import LinkedInIcon from "./../../assets/icons/linkedin.svg";
+import EmailIcon from "./../../assets/icons/email.svg";
+import ArrowUpIcon from "./../../assets/icons/arrow-up.svg";
+
+const quickLinks = [
+  { name: "About me", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
+];
+---
+
+<footer class="relative w-full text-white mt-20 pb-5" role="contentinfo">
   <!-- Background overlay -->
   <div
     class="absolute inset-0 bg-gradient-to-t from-slate-950 to-slate-900 border-t border-slate-800"
@@ -7,7 +22,7 @@
 
   <!-- Content wrapper -->
   <div class="relative container-custom py-12">
-    <div class="grid md:grid-cols-3 gap-8 items-center">
+    <div class="grid md:grid-cols-3 gap-8 py-10">
       <!-- Brand & Copyright -->
       <div class="text-center md:text-left">
         <h3 class="text-2xl font-semibold poppins-semibold text-white mb-2">
@@ -19,43 +34,29 @@
       </div>
 
       <!-- Quick Links -->
-      <nav class="text-center" aria-label="Quick links footer">
+      <nav class="text-center md:mt-1" aria-label="Quick links footer">
         <h4 class="text-lg font-medium poppins-medium text-white mb-4">
           Quick links
         </h4>
         <ul class="space-y-2">
-          <li>
-            <a
-              href="#about"
-              class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
-              aria-label="Go to About me section"
-            >
-              About me
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
-              aria-label="Go to Projects section"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
-              aria-label="Go to Contact section"
-            >
-              Contact
-            </a>
-          </li>
+          {
+            quickLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
+                  aria-label={`Go to ${link.name} section`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
 
       <!-- Social Links -->
-      <div class="text-center md:text-right">
+      <div class="text-center md:mt-1 md:text-right">
         <h4 class="text-lg font-medium poppins-medium text-white mb-4">
           Follow me
         </h4>
@@ -67,16 +68,10 @@
             aria-label="Visit GitHub profile of Yasel Pérez"
             class="w-10 h-10 bg-slate-800 hover:bg-emerald-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent group"
           >
-            <svg
+            <GithubIcon
               class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200"
-              fill="currentColor"
-              viewBox="0 0 24 24"
               aria-hidden="true"
-            >
-              <path
-                d="M12 .5C5.648.5.5 5.648.5 12c0 5.092 3.292 9.396 7.862 10.924.575.105.786-.248.786-.554 0-.273-.01-1.16-.016-2.105-3.2.696-3.878-1.54-3.878-1.54-.523-1.33-1.278-1.684-1.278-1.684-1.046-.714.08-.699.08-.699 1.157.082 1.767 1.188 1.767 1.188 1.028 1.762 2.7 1.253 3.357.958.104-.744.402-1.254.73-1.543-2.555-.291-5.244-1.277-5.244-5.687 0-1.256.447-2.282 1.181-3.087-.118-.29-.512-1.459.112-3.042 0 0 .964-.309 3.16 1.18.916-.254 1.9-.38 2.878-.384.977.004 1.961.13 2.88.384 2.193-1.49 3.156-1.18 3.156-1.18.627 1.583.233 2.752.114 3.042.737.805 1.18 1.83 1.18 3.087 0 4.421-2.694 5.392-5.26 5.678.412.354.78 1.05.78 2.115 0 1.526-.014 2.758-.014 3.132 0 .308.208.666.794.552C20.713 21.394 24 17.09 24 12c0-6.352-5.148-11.5-12-11.5z"
-              ></path>
-            </svg>
+            />
           </a>
 
           <a
@@ -86,16 +81,10 @@
             aria-label="Visitar perfil de LinkedIn de Yasel Pérez"
             class="w-10 h-10 bg-slate-800 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent group"
           >
-            <svg
+            <LinkedInIcon
               class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200"
-              fill="currentColor"
-              viewBox="0 0 24 24"
               aria-hidden="true"
-            >
-              <path
-                d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H13v2.24h.08c.768-1.44 2.632-2.24 4.38-2.24 4.64 0 5.5 3.2 5.5 7.36V24h-5v-7.28c0-1.728-.032-3.952-2.4-3.952-2.4 0-2.767 1.88-2.767 3.832V24H7.5V8z"
-              ></path>
-            </svg>
+            />
           </a>
 
           <a
@@ -103,20 +92,10 @@
             aria-label="Send email to Yasel Pérez"
             class="w-10 h-10 bg-slate-800 hover:bg-purple-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-transparent group"
           >
-            <svg
+            <EmailIcon
               class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
               aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
+            />
           </a>
         </div>
       </div>
@@ -124,35 +103,9 @@
 
     <!-- Bottom Section -->
     <div class="mt-8 pt-8 border-t border-slate-800">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p
-          class="text-slate-500 text-sm montserrat-regular text-center md:text-left"
-        >
-          © {new Date().getFullYear()} Yasel Pérez. All rights reserved.
-        </p>
-
-        <div class="flex items-center gap-4 text-sm">
-          <button
-            id="back-to-top"
-            class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md px-2 py-1"
-            aria-label="Go to top of the page"
-          >
-            <svg
-              class="w-4 h-4 inline mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-            </svg>
-            Back to top
-          </button>
-        </div>
-      </div>
+      <p class="text-slate-500 text-sm montserrat-regular text-center">
+        © {new Date().getFullYear()} Yasel Pérez. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
