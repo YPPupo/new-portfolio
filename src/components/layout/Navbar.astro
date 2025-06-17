@@ -1,7 +1,7 @@
 ---
 // Iconos
-import hamMenu from "../../assets/icons/ham-menu.svg";
-import closeIcon from "../../assets/icons/close.svg";
+import HamMenu from "../../assets/icons/ham-menu.svg";
+import CloseIcon from "../../assets/icons/close.svg";
 
 const items = [
   { name: "Home", href: "#home" },
@@ -31,12 +31,7 @@ const items = [
     class="relative flex justify-between items-center max-w-7xl mx-auto py-5 px-7 xl:px-0 text-white"
   >
     <h1 class="font-bold text-3xl poppins-bold">
-      <a
-        href="#home"
-        class="rounded-md"
-      >
-        Portfolio
-      </a>
+      <a href="#home" class="rounded-md"> Portfolio </a>
     </h1>
 
     <!-- Web Menu -->
@@ -68,12 +63,7 @@ const items = [
       aria-expanded="false"
       aria-controls="mobileMenu"
     >
-      <img
-        src={hamMenu.src}
-        alt="Menu"
-        class="w-8 h-8 filter invert grayscale"
-        role="presentation"
-      />
+      <HamMenu class="w-8 h-8 filter invert grayscale" role="presentation" />
     </button>
   </div>
 
@@ -92,10 +82,7 @@ const items = [
         id="closeMenuButton"
         class="p-2 rounded-md hover:scale-110 transition-transform duration-200"
       >
-        <img
-          aria-label="Close menu"
-          src={closeIcon.src}
-          alt="Close"
+        <CloseIcon
           class="w-8 h-8 filter invert grayscale"
           role="presentation"
         />
@@ -185,14 +172,14 @@ const items = [
     });
 
     // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(this.getAttribute("href"));
         if (target) {
           target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            behavior: "smooth",
+            block: "start",
           });
         }
       });

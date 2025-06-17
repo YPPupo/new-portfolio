@@ -1,3 +1,14 @@
+---
+import EmailIcon from "/src/assets/icons/contact-email.svg";
+import LocationIcon from "/src/assets/icons/location.svg";
+import ClockIcon from "/src/assets/icons/clock.svg";
+import GithubIcon from "/src/assets/icons/github.svg";
+import LinkedInIcon from "/src/assets/icons/linkedin.svg";
+import ContactForm from "../ui/ContactForm.astro";
+
+export const prerender = false;
+---
+
 <section id="contact" class="section-padding" aria-labelledby="contact-heading">
   <div class="container-custom">
     <div class="text-center mb-16">
@@ -34,11 +45,7 @@
               <div
                 class="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center border border-emerald-500/30"
               >
-                <img
-                  src="/src/assets/icons/contact-email.svg"
-                  alt="Email"
-                  class="w-6 h-6 text-emerald-400"
-                />
+                <EmailIcon class="w-6 h-6 text-emerald-400" />
               </div>
               <div>
                 <p class="text-slate-400 text-sm">Email</p>
@@ -56,11 +63,7 @@
               <div
                 class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center border border-blue-500/30"
               >
-                <img
-                  src="/src/assets/icons/location.svg"
-                  alt="Location"
-                  class="w-6 h-6 text-blue-400"
-                />
+                <LocationIcon class="w-6 h-6 text-blue-400" />
               </div>
               <div>
                 <p class="text-slate-400 text-sm">Location</p>
@@ -74,11 +77,7 @@
               <div
                 class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center border border-purple-500/30"
               >
-                <img
-                  src="/src/assets/icons/clock.svg"
-                  alt="Response time"
-                  class="w-6 h-6 text-purple-400"
-                />
+                <ClockIcon class="w-6 h-6 text-purple-400" />
               </div>
               <div>
                 <p class="text-slate-400 text-sm">Response Time</p>
@@ -100,26 +99,22 @@
               href="https://github.com/YPPupo"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-12 h-12 bg-slate-700 hover:bg-emerald-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent"
+              class="w-12 h-12 group bg-slate-700 hover:bg-emerald-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent"
               aria-label="GitHub profile of Yasel Pérez"
             >
-              <img
-                src="/src/assets/icons/github.svg"
-                alt="GitHub profile"
-                class="w-6 h-6 text-white"
+              <GithubIcon
+                class="w-6 h-6 text-slate-400 group-hover:text-white transition-colors duration-200"
               />
             </a>
             <a
-              href="https://linkedin.com/in/yasel-perez"
+              href="https://linkedin.com/in/yppupo"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-12 h-12 bg-slate-700 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
+              class="w-12 h-12 group bg-slate-700 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
               aria-label="LinkedIn profile of Yasel Pérez"
             >
-              <img
-                src="/src/assets/icons/linkedin.svg"
-                alt="LinkedIn profile"
-                class="w-6 h-6 text-white"
+              <LinkedInIcon
+                class="w-6 h-6 text-slate-400 group-hover:text-white transition-colors duration-200"
               />
             </a>
           </div>
@@ -128,334 +123,8 @@
 
       <!-- Contact Form -->
       <div>
-        <form
-          class="glass-effect rounded-xl p-8 border border-slate-700/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50 space-y-6"
-          action="https://formspree.io/f/mnqrvydw"
-          method="POST"
-          novalidate
-          aria-label="Contact form"
-        >
-          <div class="space-y-2">
-            <label for="name" class="block text-white poppins-medium text-sm">
-              Name <span class="text-red-400" aria-label="required field"
-                >*</span
-              >
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              aria-required="true"
-              aria-describedby="name-error"
-              class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200"
-              placeholder="Your full name"
-            />
-            <div
-              id="name-error"
-              class="text-red-400 text-sm hidden"
-              role="alert"
-              aria-live="polite"
-            >
-              Please enter your name
-            </div>
-          </div>
-
-          <div class="space-y-2">
-            <label for="email" class="block text-white poppins-medium text-sm">
-              Email <span class="text-red-400" aria-label="required field"
-                >*</span
-              >
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              aria-required="true"
-              aria-describedby="email-error"
-              class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200"
-              placeholder="your.email@example.com"
-            />
-            <div
-              id="email-error"
-              class="text-red-400 text-sm hidden"
-              role="alert"
-              aria-live="polite"
-            >
-              Please enter a valid email
-            </div>
-          </div>
-
-          <div class="space-y-2">
-            <label
-              for="subject"
-              class="block text-white poppins-medium text-sm"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              name="subject"
-              id="subject"
-              class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200"
-              placeholder="Subject of the message"
-            />
-          </div>
-
-          <div class="space-y-2">
-            <label
-              for="message"
-              class="block text-white poppins-medium text-sm"
-            >
-              Message <span class="text-red-400" aria-label="required field"
-                >*</span
-              >
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              rows="5"
-              required
-              aria-required="true"
-              aria-describedby="message-error"
-              class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200 resize-none"
-              placeholder="Tell me about your project or idea..."></textarea>
-            <div
-              id="message-error"
-              class="text-red-400 text-sm hidden"
-              role="alert"
-              aria-live="polite"
-            >
-              Please enter your message
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            class="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent magnetic-btn enhanced-hover ripple disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-describedby="submit-status"
-          >
-            <span class="submit-text">Send Message</span>
-            <span class="loading-text hidden">Sending...</span>
-          </button>
-
-          <div
-            id="submit-status"
-            class="text-center"
-            role="status"
-            aria-live="polite"
-          >
-            <div
-              id="success-message"
-              class="text-emerald-400 font-medium hidden"
-            >
-              Your message has been sent successfully! I'll get back to you
-              soon.
-            </div>
-            <div id="error-message" class="text-red-400 font-medium hidden">
-              An error occurred while sending your message. Please try again.
-            </div>
-          </div>
-        </form>
+        <ContactForm />
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-    const submitButton = form?.querySelector('button[type="submit"]');
-    const submitText = submitButton?.querySelector(".submit-text");
-    const loadingText = submitButton?.querySelector(".loading-text");
-    const successMessage = document.getElementById("success-message");
-    const errorMessage = document.getElementById("error-message");
-
-    if (!form || !submitButton) return;
-
-    // Form validation
-    function validateField(
-      field: HTMLInputElement,
-      errorElement: HTMLElement,
-      validator: (value: string) => boolean
-    ) {
-      const isValid = validator(field.value);
-      if (isValid) {
-        field.classList.remove("border-red-400");
-        field.classList.add("border-slate-600");
-        errorElement.classList.add("hidden");
-        field.setAttribute("aria-invalid", "false");
-      } else {
-        field.classList.add("border-red-400");
-        field.classList.remove("border-slate-600");
-        errorElement.classList.remove("hidden");
-        field.setAttribute("aria-invalid", "true");
-      }
-      return isValid;
-    }
-
-    // Validators
-    const validators = {
-      name: (value: string) => value.trim().length >= 2,
-      email: (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-      message: (value: string) => value.trim().length >= 10,
-    };
-
-    // Prevent browser's native validation
-    form.setAttribute("novalidate", "true");
-    
-    // Initialize field styles - apply immediately to prevent flash of error state
-    const initializeFieldStyles = () => {
-      ["name", "email", "message", "subject"].forEach((fieldName) => {
-        // Handle both input and textarea elements
-        const field = form.querySelector(`#${fieldName}`) as
-          | HTMLInputElement
-          | HTMLTextAreaElement
-          | null;
-        const errorElement = document.getElementById(`${fieldName}-error`);
-        
-        if (field) {
-          // Force neutral style and hide any error message
-          field.classList.remove("border-red-400");
-          field.classList.add("border-slate-600");
-          field.setAttribute("aria-invalid", "false");
-          if (errorElement) {
-            errorElement.classList.add("hidden");
-          }
-        }
-      });
-    };
-    
-    // Apply styles immediately
-    initializeFieldStyles();
-    // And also after a very short delay to override any browser behavior
-    setTimeout(initializeFieldStyles, 50);
-
-    // Add real-time validation only after explicit user interaction
-    let userHasInteracted = false;
-    
-    ["name", "email", "message"].forEach((fieldName) => {
-      // Use type assertion to handle different input types
-      const field = form.querySelector(`#${fieldName}`) as
-        | HTMLInputElement
-        | HTMLTextAreaElement;
-      const errorElement = document.getElementById(`${fieldName}-error`);
-
-      if (field && errorElement) {
-        // Deliberate user interaction is required for validation
-        const handleUserInteraction = () => {
-          // Only set this flag after deliberate interaction (not auto-focus)
-          userHasInteracted = true;
-        };
-
-        // Track deliberate user interaction with explicit events
-        field.addEventListener("click", handleUserInteraction);
-        field.addEventListener("keydown", handleUserInteraction);
-        
-        field.addEventListener("blur", () => {
-          // Only validate if user has definitely interacted with the form
-          if (userHasInteracted) {
-            validateField(
-              field as HTMLInputElement,
-              errorElement as HTMLElement,
-              validators[fieldName as keyof typeof validators]
-            );
-          }
-        });
-
-        field.addEventListener("input", () => {
-          // Input is definitely user interaction
-          userHasInteracted = true;
-          
-          if (field.classList.contains("border-red-400")) {
-            validateField(
-              field as HTMLInputElement,
-              errorElement as HTMLElement,
-              validators[fieldName as keyof typeof validators]
-            );
-          }
-        });
-      }
-    });
-
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      // Validate all fields
-      const nameField = form.querySelector("#name");
-      const emailField = form.querySelector("#email");
-      const messageField = form.querySelector("#message");
-
-      const nameError = document.getElementById("name-error");
-      const emailError = document.getElementById("email-error");
-      const messageError = document.getElementById("message-error");
-
-      const isNameValid = validateField(
-        nameField as HTMLInputElement,
-        nameError as HTMLElement,
-        validators.name
-      );
-      const isEmailValid = validateField(
-        emailField as HTMLInputElement,
-        emailError as HTMLElement,
-        validators.email
-      );
-      const isMessageValid = validateField(
-        messageField as HTMLInputElement,
-        messageError as HTMLElement,
-        validators.message
-      );
-
-      if (!isNameValid || !isEmailValid || !isMessageValid) {
-        // Focus on first invalid field
-        const firstInvalidField = form.querySelector('[aria-invalid="true"]');
-        if (firstInvalidField) {
-          (firstInvalidField as HTMLInputElement).focus();
-        }
-        return;
-      }
-
-      // Show loading state
-      if (submitButton) (submitButton as HTMLButtonElement).disabled = true;
-      if (submitText) submitText.classList.add("hidden");
-      if (loadingText) loadingText.classList.remove("hidden");
-      if (successMessage) successMessage.classList.add("hidden");
-      if (errorMessage) errorMessage.classList.add("hidden");
-
-      try {
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        });
-
-        if (response.ok) {
-          if (form) form.reset();
-          if (successMessage) successMessage.classList.remove("hidden");
-          // Reset field states
-          ["name", "email", "message"].forEach((fieldName) => {
-            const field = form ? form.querySelector(`#${fieldName}`) : null;
-            if (field) {
-              field.classList.remove("border-red-400");
-              field.classList.add("border-slate-600");
-              field.setAttribute("aria-invalid", "false");
-            }
-          });
-        } else {
-          throw new Error("Network response was not ok");
-        }
-      } catch (error) {
-        if (errorMessage) errorMessage.classList.remove("hidden");
-      } finally {
-        // Reset button state
-        if (submitButton) (submitButton as HTMLButtonElement).disabled = false;
-        if (submitText) submitText.classList.remove("hidden");
-        if (loadingText) loadingText.classList.add("hidden");
-      }
-    });
-  });
-</script>

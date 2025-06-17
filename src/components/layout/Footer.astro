@@ -1,4 +1,19 @@
-<footer class="relative w-full text-white mt-20" role="contentinfo">
+---
+import GithubIcon from "./../../assets/icons/github.svg";
+import LinkedInIcon from "./../../assets/icons/linkedin.svg";
+import EmailIcon from "./../../assets/icons/email.svg";
+import ArrowUpIcon from "./../../assets/icons/arrow-up.svg";
+
+const quickLinks = [
+  { name: "About me", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
+];
+---
+
+<footer class="relative w-full text-white mt-20 pb-5" role="contentinfo">
   <!-- Background overlay -->
   <div
     class="absolute inset-0 bg-gradient-to-t from-slate-950 to-slate-900 border-t border-slate-800"
@@ -7,7 +22,7 @@
 
   <!-- Content wrapper -->
   <div class="relative container-custom py-12">
-    <div class="grid md:grid-cols-3 gap-8 items-center">
+    <div class="grid md:grid-cols-3 gap-8 py-10">
       <!-- Brand & Copyright -->
       <div class="text-center md:text-left">
         <h3 class="text-2xl font-semibold poppins-semibold text-white mb-2">
@@ -19,43 +34,29 @@
       </div>
 
       <!-- Quick Links -->
-      <nav class="text-center" aria-label="Quick links footer">
+      <nav class="text-center md:mt-1" aria-label="Quick links footer">
         <h4 class="text-lg font-medium poppins-medium text-white mb-4">
           Quick links
         </h4>
         <ul class="space-y-2">
-          <li>
-            <a
-              href="#about"
-              class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
-              aria-label="Go to About me section"
-            >
-              About me
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
-              aria-label="Go to Projects section"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
-              aria-label="Go to Contact section"
-            >
-              Contact
-            </a>
-          </li>
+          {
+            quickLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm montserrat-regular focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md"
+                  aria-label={`Go to ${link.name} section`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
 
       <!-- Social Links -->
-      <div class="text-center md:text-right">
+      <div class="text-center md:mt-1 md:text-right">
         <h4 class="text-lg font-medium poppins-medium text-white mb-4">
           Follow me
         </h4>
@@ -67,10 +68,8 @@
             aria-label="Visit GitHub profile of Yasel Pérez"
             class="w-10 h-10 bg-slate-800 hover:bg-emerald-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent group"
           >
-            <img 
-              src="/src/assets/icons/github.svg" 
-              class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200" 
-              alt="GitHub icon" 
+            <GithubIcon
+              class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200"
               aria-hidden="true"
             />
           </a>
@@ -82,10 +81,8 @@
             aria-label="Visitar perfil de LinkedIn de Yasel Pérez"
             class="w-10 h-10 bg-slate-800 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent group"
           >
-            <img 
-              src="/src/assets/icons/linkedin.svg" 
-              class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200" 
-              alt="LinkedIn icon" 
+            <LinkedInIcon
+              class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200"
               aria-hidden="true"
             />
           </a>
@@ -95,10 +92,8 @@
             aria-label="Send email to Yasel Pérez"
             class="w-10 h-10 bg-slate-800 hover:bg-purple-500 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-transparent group"
           >
-            <img 
-              src="/src/assets/icons/email.svg" 
-              class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200" 
-              alt="Email icon" 
+            <EmailIcon
+              class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors duration-200"
               aria-hidden="true"
             />
           </a>
@@ -108,35 +103,9 @@
 
     <!-- Bottom Section -->
     <div class="mt-8 pt-8 border-t border-slate-800">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p
-          class="text-slate-500 text-sm montserrat-regular text-center md:text-left"
-        >
-          © {new Date().getFullYear()} Yasel Pérez. All rights reserved.
-        </p>
-
-        <div class="flex items-center gap-4 text-sm">
-          <button
-            id="back-to-top"
-            class="text-slate-400 hover:text-emerald-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-md px-2 py-1"
-            aria-label="Go to top of the page"
-          >
-            <svg
-              class="w-4 h-4 inline mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-            </svg>
-            Back to top
-          </button>
-        </div>
-      </div>
+      <p class="text-slate-500 text-sm montserrat-regular text-center">
+        © {new Date().getFullYear()} Yasel Pérez. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
