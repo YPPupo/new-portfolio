@@ -1,4 +1,7 @@
 ---
+import ExternalLinkIcon from "./../../assets/icons/external-link.svg";
+import GithubRepoIcon from "./../../assets/icons/github-repo.svg";
+
 interface Props {
   title: string;
   description: string;
@@ -20,10 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<article
-  class="group"
-  style={`animation-delay: ${index * 0.2}s`}
->
+<article class="group" style={`animation-delay: ${index * 0.2}s`}>
   <div
     class="glass-effect rounded-xl overflow-hidden border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-500 card-hover bg-gradient-to-br from-slate-800/50 to-slate-900/50 h-full flex flex-col"
   >
@@ -65,11 +65,7 @@ const {
               class="bg-emerald-500 hover:bg-emerald-600 text-white p-3 rounded-full transition-all duration-200 hover:scale-110 shadow-lg"
               aria-label={`Ver proyecto ${title} en vivo`}
             >
-              <img
-                src="/src/assets/icons/external-link.svg"
-                alt="External link"
-                class="w-5 h-5"
-              />
+              <ExternalLinkIcon class="w-5 h-5" />
             </a>
             <a
               href={repoLink}
@@ -78,11 +74,7 @@ const {
               class="bg-slate-600 hover:bg-slate-700 text-white p-3 rounded-full transition-all duration-200 hover:scale-110 shadow-lg"
               aria-label={`Ver código fuente de ${title}`}
             >
-              <img
-                src="/src/assets/icons/github-repo.svg"
-                alt="GitHub repository"
-                class="w-5 h-5"
-              />
+              <GithubRepoIcon class="w-5 h-5" />
             </a>
           </div>
         </div>
