@@ -33,12 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Floating animation for cards
-  const cards = document.querySelectorAll(".floating-card");
-  cards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.2}s`;
-  });
-
   // Magnetic effect for buttons
   const magneticButtons = document.querySelectorAll(".magnetic-btn");
   magneticButtons.forEach((btn) => {
