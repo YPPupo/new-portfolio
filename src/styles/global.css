@@ -411,26 +411,6 @@ body {
 
 
 /* Advanced Animations and Micro-interactions */
-
-/* Custom Cursor */
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background: var(--color-primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: all 0.1s ease;
-  opacity: 0.7;
-  mix-blend-mode: difference;
-}
-
-.cursor-hover {
-  transform: scale(1.5);
-  opacity: 1;
-}
-
 /* Scroll Animations */
 .animate-on-scroll {
   opacity: 0;
@@ -453,7 +433,7 @@ body {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-100px);
   }
 }
 
@@ -467,41 +447,6 @@ body {
   width: 0%;
   transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.2s;
-}
-
-/* Reveal Text Animation */
-.reveal-text .word {
-  display: inline-block;
-  opacity: 0;
-  animation: revealWord 0.6s ease-out forwards;
-}
-
-@keyframes revealWord {
-  from {
-    opacity: 0;
-    transform: translateY(20px) rotateX(90deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotateX(0deg);
-  }
-}
-
-/* Stagger Animation */
-.stagger-animation > * {
-  opacity: 0;
-  animation: staggerFadeIn 0.6s ease-out forwards;
-}
-
-@keyframes staggerFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Particle System */
@@ -770,18 +715,10 @@ body {
     animation: none !important;
     transition: none !important;
   }
-  
-  .custom-cursor {
-    display: none;
-  }
 }
 
 /* Mobile Optimizations */
-@media (max-width: 768px) {
-  .custom-cursor {
-    display: none;
-  }
-  
+@media (max-width: 768px) {  
   .magnetic-btn {
     transform: none !important;
   }

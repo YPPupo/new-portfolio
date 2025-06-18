@@ -1,0 +1,63 @@
+---
+interface Props {
+  index: number;
+  name: string;
+  level: number;
+  icon: astroHTML.JSX.Element;
+}
+
+const { index, name, level, icon: Icon } = Astro.props;
+---
+
+<div class="group floating-card" style={`animation-delay: ${index * 0.1}s`}>
+  <div
+    class="glass-effect rounded-xl p-6 text-center card-hover border border-slate-700/50 hover:border-blue-500/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50"
+  >
+    <!-- Icon Container -->
+    <div class="relative mb-4 mx-auto w-16 h-16">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"
+      >
+      </div>
+      <div
+        class="relative w-16 h-16 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-blue-500/30 flex justify-center items-center group-hover:border-blue-400 transition-all duration-300 group-hover:scale-110"
+      >
+        <Icon
+          class="w-8 h-8 filter brightness-0 invert group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+    </div>
+
+    <!-- Skill Name -->
+    <h4
+      class="text-white text-base font-semibold mb-3 poppins-medium whitespace-nowrap"
+    >
+      {name}
+    </h4>
+
+    <!-- Progress Circle -->
+    <div class="relative w-12 h-12 mx-auto">
+      <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+        <path
+          class="text-slate-700"
+          stroke="currentColor"
+          stroke-width="3"
+          fill="none"
+          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+        ></path>
+        <path
+          class="text-blue-400"
+          stroke="currentColor"
+          stroke-width="3"
+          fill="none"
+          stroke-linecap="round"
+          stroke-dasharray={`${level}, 100`}
+          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+        ></path>
+      </svg>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="text-xs text-blue-400 font-semibold">{level}%</span>
+      </div>
+    </div>
+  </div>
+</div>

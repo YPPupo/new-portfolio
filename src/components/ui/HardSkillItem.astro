@@ -1,0 +1,52 @@
+---
+interface Props {
+  name: string;
+  level: number;
+  icon: astroHTML.JSX.Element;
+}
+
+const { name, level, icon: Icon } = Astro.props;
+---
+
+<div class="group floating-card">
+  <div
+    class="glass-effect rounded-xl p-6 text-center card-hover border border-slate-700/50 hover:border-emerald-500/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50 glow-on-hover"
+  >
+    <!-- Icon Container -->
+    <div class="relative mb-4 mx-auto w-20 h-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-blue-500/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"
+      >
+      </div>
+      <div
+        class="relative w-20 h-20 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-emerald-500/30 flex justify-center items-center group-hover:border-emerald-400 transition-all duration-300 group-hover:scale-110"
+      >
+        <Icon
+          class="w-10 h-10 group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+    </div>
+
+    <!-- Skill Name -->
+    <h4 class="text-white text-lg font-semibold mb-3 poppins-medium">
+      {name}
+    </h4>
+
+    <!-- Progress Bar -->
+    <div class="relative">
+      <div class="w-full bg-slate-700 rounded-full h-2 mb-2">
+        <div
+          class="progress-bar bg-gradient-to-r from-emerald-400 to-emerald-500 h-2 rounded-full relative overflow-hidden"
+          data-percentage={level}
+          style="width: 0%;"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"
+          >
+          </div>
+        </div>
+      </div>
+      <span class="text-emerald-400 text-sm font-medium">{level}%</span>
+    </div>
+  </div>
+</div>
