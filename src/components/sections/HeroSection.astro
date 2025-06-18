@@ -121,3 +121,33 @@ import Programmer from "./../../assets/programmer.svg";
     animation: pulse-slow 4s ease-in-out infinite;
   }
 </style>
+
+<!-- <script>
+  // Typing animation for hero text
+  const heroHeading: HTMLElement | null =
+    document.querySelector("#hero-heading");
+
+  if (heroHeading) {
+    const text = heroHeading.textContent || "";
+
+    heroHeading.textContent = "";
+
+    heroHeading.style.borderRight = "2px solid #10b981";
+
+    let i = 0;
+
+    const typeWriter = () => {
+      if (i < text.length) {
+        heroHeading.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      } else {
+        setTimeout(() => {
+          heroHeading.style.borderRight = "none";
+        }, 1000);
+      }
+    };
+
+    setTimeout(typeWriter, 1000);
+  }
+</script> -->

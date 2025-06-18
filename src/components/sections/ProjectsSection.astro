@@ -14,7 +14,7 @@ const projects = [
     link: "https://mangoland.vercel.app/",
     repoLink: "https://github.com/YPPupo/mangoland.git",
     tags: ["Astro", "JavaScript", "Vercel"],
-    featured: true,
+    featured: false,
   },
   {
     title: "FM Devfinder",
@@ -41,7 +41,7 @@ const projects = [
 
 <section
   id="projects"
-  class="section-padding"
+  class="section-padding animate-on-scroll"
   aria-labelledby="projects-heading"
 >
   <div class="container-custom">
@@ -83,16 +83,18 @@ const projects = [
 
       <div class="grid md:grid-cols-2 gap-8 stagger-animation">
         {
-          projects.filter((p) => !p.featured).map((project) => (
-            <ProjectItem
-              title={project.title}
-              description={project.description}
-              image={project.image.src}
-              link={project.link}
-              repoLink={project.repoLink}
-              tags={project.tags}
-            />
-          ))
+          projects
+            .filter((p) => !p.featured)
+            .map((project) => (
+              <ProjectItem
+                title={project.title}
+                description={project.description}
+                image={project.image.src}
+                link={project.link}
+                repoLink={project.repoLink}
+                tags={project.tags}
+              />
+            ))
         }
       </div>
     </div>
