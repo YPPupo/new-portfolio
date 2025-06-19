@@ -36,7 +36,11 @@ const softSkills = [
 ];
 ---
 
-<section id="skills" class="section-padding animate-on-scroll" aria-labelledby="skills-heading">
+<section
+  id="skills"
+  class="section-padding animate-on-scroll"
+  aria-labelledby="skills-heading"
+>
   <div class="container-custom">
     <div class="text-center mb-16">
       <h2
@@ -117,32 +121,61 @@ const softSkills = [
 </style>
 
 <script>
-  // Initialize skill animations when section comes into view
-  const skillsSection = document.getElementById("skills");
+  // Wait for the DOM to be fully loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    const skillsSection = document.getElementById("skills");
 
-  if (skillsSection) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Animate progress bars
-            const progressBars = entry.target.querySelectorAll(".progress-bar");
-            progressBars.forEach((bar, index) => {
-              setTimeout(() => {
-                // Type assertion to HTMLElement to address TypeScript lint errors
-                const barElement = bar as HTMLElement;
-                const percentage = barElement.getAttribute("data-percentage");
-                barElement.style.width = percentage + "%";
-              }, index * 100);
-            });
+    if (!skillsSection) return;
 
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    // Function to animate progress bars
+    const animateProgressBars = (target: HTMLElement) => {
+      const progressBars = target.querySelectorAll(".progress-bar");
 
-    observer.observe(skillsSection);
-  }
+      progressBars.forEach((bar, index) => {
+        // Ensure we have an HTMLElement
+        const barElement = bar;
+        if (!(barElement instanceof HTMLElement)) return;
+
+        // Get the percentage from data attribute
+        const percentage = barElement.getAttribute("data-percentage");
+        if (!percentage) return;
+
+        // Animate after a delay based on index
+        setTimeout(() => {
+          // Use requestAnimationFrame for smoother animation
+          requestAnimationFrame(() => {
+            barElement.style.transition = "width 1s ease-in-out";
+            barElement.style.width = `${percentage}%`;
+          });
+        }, index * 100);
+      });
+    };
+
+    // Check if IntersectionObserver is supported
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateProgressBars(entry.target as HTMLElement);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.3,
+          // Add rootMargin to trigger slightly before the element comes into view
+          rootMargin: "0px 0px -50px 0px",
+        }
+      );
+
+      observer.observe(skillsSection);
+    } else {
+      // Fallback for browsers that don't support IntersectionObserver
+      // Just animate the progress bars after a short delay
+      setTimeout(() => {
+        animateProgressBars(skillsSection);
+      }, 500);
+    }
+  });
 </script>
