@@ -124,28 +124,50 @@ const softSkills = [
   // Wait for the DOM to be fully loaded
   document.addEventListener("DOMContentLoaded", () => {
     const skillsSection = document.getElementById("skills");
-
     if (!skillsSection) return;
+
+    // Function to set progress bars to their final state without animation
+    const setStaticProgressBars = (target: HTMLElement) => {
+      const progressBars = target.querySelectorAll(".progress-bar");
+      progressBars.forEach((bar) => {
+        if (!(bar instanceof HTMLElement)) return;
+        const percentage = bar.getAttribute("data-percentage");
+        if (percentage) {
+          // Set width directly without transition
+          bar.style.transition = 'none';
+          bar.style.width = `${percentage}%`;
+        }
+      });
+    };
 
     // Function to animate progress bars
     const animateProgressBars = (target: HTMLElement) => {
       const progressBars = target.querySelectorAll(".progress-bar");
+      let animationSupported = true;
+
+      // Test if CSS transitions are supported
+      const testElement = document.createElement('div');
+      if (typeof testElement.style.transition === 'undefined') {
+        animationSupported = false;
+      }
 
       progressBars.forEach((bar, index) => {
-        // Ensure we have an HTMLElement
-        const barElement = bar;
-        if (!(barElement instanceof HTMLElement)) return;
-
-        // Get the percentage from data attribute
-        const percentage = barElement.getAttribute("data-percentage");
+        if (!(bar instanceof HTMLElement)) return;
+        const percentage = bar.getAttribute("data-percentage");
         if (!percentage) return;
+
+        if (!animationSupported) {
+          // If animation is not supported, set width directly
+          bar.style.width = `${percentage}%`;
+          return;
+        }
+
 
         // Animate after a delay based on index
         setTimeout(() => {
-          // Use requestAnimationFrame for smoother animation
           requestAnimationFrame(() => {
-            barElement.style.transition = "width 1s ease-in-out";
-            barElement.style.width = `${percentage}%`;
+            bar.style.transition = "width 1s ease-in-out";
+            bar.style.width = `${percentage}%`;
           });
         }, index * 100);
       });
@@ -164,7 +186,6 @@ const softSkills = [
         },
         {
           threshold: 0.3,
-          // Add rootMargin to trigger slightly before the element comes into view
           rootMargin: "0px 0px -50px 0px",
         }
       );
@@ -172,10 +193,8 @@ const softSkills = [
       observer.observe(skillsSection);
     } else {
       // Fallback for browsers that don't support IntersectionObserver
-      // Just animate the progress bars after a short delay
-      setTimeout(() => {
-        animateProgressBars(skillsSection);
-      }, 500);
+      // Set static progress bars without animation
+      setStaticProgressBars(skillsSection);
     }
   });
 </script>
