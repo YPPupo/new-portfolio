@@ -3,9 +3,23 @@ import ProjectItem from "./../ui/ProjectItem.astro";
 import mangolandImage from "../../assets/projects/mangoland.png";
 import devfinderImage from "../../assets/projects/devfinder.png";
 import cryptoDashboardImage from "../../assets/projects/crypto-dashboard.png";
+import audioTranscriptionsImage from "../../assets/projects/audio-transcriptions.png";
+import testingCalculatorImage from "../../assets/projects/testing-calculator.png";
+import sortealoImage from "../../assets/projects/sortealo.png";
 import FeaturedProjectItem from "../ui/FeaturedProjectItem.astro";
 
 const projects = [
+  {
+    title: "Sortealo",
+    description:
+      "Sortealo is a comprehensive raffle management platform that serves both raffle organizers and participants. It provides organizers with powerful tools to create, manage, and track raffles, while offering participants a seamless experience to discover and enter raffles. The platform features secure payment processing, real-time draw management, and automated winner selection. Built with modern web technologies, Sortealo demonstrates my ability to create user-friendly interfaces and robust backend systems for handling transactions and user interactions in a secure and scalable manner.",
+    image: sortealoImage,
+    link: "https://web-sortealo.vercel.app/",
+    repoLink: "",
+    tags: ["React", "Next js", "API", "Supabase", "Vercel"],
+    featured: false,
+    isPrivated: true,
+  },
   {
     title: "Mangoland",
     description:
@@ -15,6 +29,29 @@ const projects = [
     repoLink: "https://github.com/YPPupo/mangoland.git",
     tags: ["Astro", "JavaScript", "Vercel"],
     featured: false,
+    isPrivated: false,
+  },
+  {
+    title: "Crypto New Dashboard",
+    description:
+      "This dashboard was built to visualize cryptocurrency data fetched from the CoinGecko API. The aim was to create a user-friendly interface for tracking and analyzing crypto market information. Key features include sortable tables displaying real-time data such as price, market capitalization, and trading volume for various cryptocurrencies. Additionally, the dashboard incorporates charts to illustrate historical price trends. This project demonstrates my skills in working with APIs, data visualization libraries (potentially like Chart.js or similar), data handling, and front-end development to present complex information in an accessible and informative way.",
+    image: cryptoDashboardImage,
+    link: "https://crypto-new-dashboard.vercel.app/",
+    repoLink: "https://github.com/YPPupo/crypto-new-dashboard.git",
+    tags: ["React", "Next js", "API", "Chart.js", "Vercel"],
+    featured: false,
+    isPrivated: false,
+  },
+  {
+    title: "Audio Transcriptions",
+    description:
+      "An audio-to-text transcription application powered by OpenAI's Whisper API. This tool allows users to upload audio files and receive accurate text transcriptions. The application requires a valid OpenAI API key for processing, which is used client-side for direct API communication and is never stored. The project demonstrates secure API key handling, file processing, and real-time transcription capabilities. Built with modern web technologies, it showcases my ability to integrate with AI services while maintaining user privacy and data security.",
+    image: audioTranscriptionsImage,
+    link: "https://yppupo.github.io/audio-transcriptions/",
+    repoLink: "https://github.com/YPPupo/audio-transcriptions.git",
+    tags: ["React", "Vite", "Github Pages"],
+    featured: false,
+    isPrivated: false,
   },
   {
     title: "FM Devfinder",
@@ -25,16 +62,18 @@ const projects = [
     repoLink: "https://github.com/YPPupo/fm-devfinder.git",
     tags: ["React", "Next js", "API", "Vercel"],
     featured: false,
+    isPrivated: false,
   },
   {
-    title: "Crypto New Dashboard",
+    title: "Testing Calculator",
     description:
-      "This dashboard was built to visualize cryptocurrency data fetched from the CoinGecko API. The aim was to create a user-friendly interface for tracking and analyzing crypto market information. Key features include sortable tables displaying real-time data such as price, market capitalization, and trading volume for various cryptocurrencies. Additionally, the dashboard incorporates charts to illustrate historical price trends. This project demonstrates my skills in working with APIs, data visualization libraries (potentially like Chart.js or similar), data handling, and front-end development to present complex information in an accessible and informative way.",
-    image: cryptoDashboardImage,
-    link: "https://crypto-new-dashboard.vercel.app/",
-    repoLink: "https://github.com/YPPupo/crypto-new-dashboard.git",
-    tags: ["React", "Next js", "API", "Dashboard"],
+      "A simple calculator application designed to demonstrate comprehensive testing practices. This project showcases my expertise in writing and implementing various types of tests, including unit tests, integration tests, and end-to-end (e2e) tests. The calculator performs basic arithmetic operations while serving as a practical example of test-driven development (TDD) principles. The project highlights my ability to ensure code reliability, maintainability, and robustness through thorough testing methodologies in a modern JavaScript/TypeScript environment.",
+    image: testingCalculatorImage,
+    link: "https://yppupo.github.io/testing-calculator/",
+    repoLink: "https://github.com/YPPupo/testing-calculator.git",
+    tags: ["React", "Vite", "Github Pages"],
     featured: false,
+    isPrivated: false,
   },
 ];
 ---
@@ -93,6 +132,7 @@ const projects = [
                 link={project.link}
                 repoLink={project.repoLink}
                 tags={project.tags}
+                isPrivated={project.isPrivated}
               />
             ))
         }
