@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Programmer from "./../../assets/programmer.svg";
+import Document from "./../../assets/icons/document.svg";
 ---
 
 <section
@@ -35,20 +36,32 @@ import Programmer from "./../../assets/programmer.svg";
     </p>
 
     <div
-      class="flex flex-col sm:flex-row gap-4 sm:gap-5 pt-4 w-full sm:w-auto justify-center md:justify-start"
+      class="flex flex-col sm:flex-row gap-4 sm:gap-5 pt-4 w-full sm:w-auto justify-center md:justify-start items-center"
       role="group"
       aria-label="Hero actions"
     >
+      <div class="flex gap-4 w-full sm:w-auto">
+        <a
+          href="#projects"
+          class="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 hover:scale-105 hover:shadow-lg transition-all duration-200 montserrat-semibold text-center sm:text-left w-full sm:w-auto"
+          aria-label="See projects">See Projects</a
+        >
+        <a
+          href="#contact"
+          class="border border-emerald-500 text-emerald-400 px-6 py-3 rounded-lg font-medium hover:bg-emerald-900 hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-200 montserrat-semibold text-center sm:text-left w-full sm:w-auto"
+          aria-label="Contact me">Contact Me</a
+        >
+      </div>
       <a
-        href="#projects"
-        class="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 hover:scale-105 hover:shadow-lg transition-all duration-200 montserrat-semibold text-center sm:text-left w-full sm:w-auto"
-        aria-label="See projects">See Projects</a
+        href="/CV YASEL PEREZ.pdf"
+        download
+        class="h-[52.8px] w-[52.8px] flex items-center justify-center border border-emerald-500 text-emerald-400 rounded-lg font-medium hover:bg-emerald-900 hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-200"
+        aria-label="Download CV"
+        title="Download CV"
       >
-      <a
-        href="#contact"
-        class="border border-emerald-500 text-emerald-400 px-6 py-3 rounded-lg font-medium hover:bg-emerald-900 hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-200 montserrat-semibold text-center sm:text-left w-full sm:w-auto"
-        aria-label="Contact me">Contact Me</a
-      >
+        <span class="sr-only">Download CV</span>
+        <Document class="w-5 h-5" />
+      </a>
     </div>
   </article>
 
